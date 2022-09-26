@@ -54,12 +54,29 @@
                     <view key="view" contentMode="scaleToFill" id="xdF-MA-OlN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NQv-Ge-HTA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UoA-gy-dEU" id="xdy-vr-D4c"/>
+                                    <outlet property="delegate" destination="UoA-gy-dEU" id="VXE-p5-45j"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dqT-CP-T7i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dqT-CP-T7i" firstAttribute="trailing" secondItem="NQv-Ge-HTA" secondAttribute="trailing" id="f7H-Rf-a09"/>
+                            <constraint firstItem="dqT-CP-T7i" firstAttribute="bottom" secondItem="NQv-Ge-HTA" secondAttribute="bottom" id="fFK-KO-UCI"/>
+                            <constraint firstItem="NQv-Ge-HTA" firstAttribute="leading" secondItem="dqT-CP-T7i" secondAttribute="leading" id="ihV-0B-e89"/>
+                            <constraint firstItem="NQv-Ge-HTA" firstAttribute="top" secondItem="dqT-CP-T7i" secondAttribute="top" id="nS5-VY-wBi"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Menu" image="fork.knife" catalog="system" selectedImage="fork.knife" id="Mqv-rM-QHa"/>
                     <navigationItem key="navigationItem" id="EzM-hu-H2t"/>
                     <connections>
+                        <outlet property="menuTableView" destination="NQv-Ge-HTA" id="xgd-KC-5RZ"/>
                         <segue destination="9yC-OS-tVR" kind="show" identifier="toDetail" id="ysD-fV-1XX"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toTables" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="qfp-Xy-qYP"/>
                     </connections>
