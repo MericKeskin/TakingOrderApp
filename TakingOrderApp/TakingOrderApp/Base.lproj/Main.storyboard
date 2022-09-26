@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XXm-Ke-MbJ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tables-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="TablesViewController" customModule="TakingOrderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tables" image="123.rectangle.fill" catalog="system" id="oAp-hZ-9NC"/>
+                    <navigationItem key="navigationItem" id="M21-j0-tjs"/>
+                    <connections>
+                        <segue destination="iUk-uI-Wh1" kind="presentation" identifier="toOrders" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="msa-eB-mrI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-152" y="794"/>
+        </scene>
+        <!--Orders View Controller-->
+        <scene sceneID="TFy-hk-Giz">
+            <objects>
+                <viewController id="iUk-uI-Wh1" customClass="OrdersViewController" customModule="TakingOrderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hFe-U9-nIE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VbU-Nb-3bH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mFT-ig-6hz"/>
+                    <connections>
+                        <segue destination="UoA-gy-dEU" kind="presentation" identifier="toMenu" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="hml-Fr-i6D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUR-DT-JS1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="654" y="794"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="GO8-Lu-dQX">
+            <objects>
+                <viewController id="UoA-gy-dEU" customClass="MenuViewController" customModule="TakingOrderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xdF-MA-OlN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dqT-CP-T7i"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Menu" image="fork.knife" catalog="system" selectedImage="fork.knife" id="Mqv-rM-QHa"/>
+                    <navigationItem key="navigationItem" id="EzM-hu-H2t"/>
+                    <connections>
+                        <segue destination="9yC-OS-tVR" kind="show" identifier="toDetail" id="ysD-fV-1XX"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toTables" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="qfp-Xy-qYP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lT-h7-KGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-152" y="130"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="HXv-og-UM3">
+            <objects>
+                <viewController id="9yC-OS-tVR" customClass="DetailViewController" customModule="TakingOrderApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="29S-xD-dbU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gvS-yQ-uQv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="u7r-cR-gDa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jLP-qE-tfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="654" y="130"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="UqE-TO-8Qa">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XXm-Ke-MbJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LaG-nk-Wec">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="UoA-gy-dEU" kind="relationship" relationship="viewControllers" id="6ia-1y-p3y"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vEt-Pf-PzO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9h-ek-lcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-920" y="461"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hml-Fr-i6D"/>
+        <segue reference="qfp-Xy-qYP"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="123.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="fork.knife" catalog="system" width="92" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

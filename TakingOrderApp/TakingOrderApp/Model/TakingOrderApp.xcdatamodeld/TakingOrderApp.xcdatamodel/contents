@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MenuItem" representedClassName="MenuItem" syncable="YES" codeGenerationType="class">
+        <attribute name="contents" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="section" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES" codeGenerationType="class">
+        <attribute name="contents" optional="YES" attributeType="Transformable" customClassName="[String:Bool]"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="tableNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Section" representedClassName="Section" syncable="YES" codeGenerationType="class">
+        <attribute name="isOpen" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Table" representedClassName="Table" syncable="YES" codeGenerationType="class">
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="MenuItem" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Order" positionX="-54" positionY="9" width="128" height="74"/>
+        <element name="Section" positionX="-36" positionY="27" width="128" height="59"/>
+        <element name="Table" positionX="-9" positionY="54" width="128" height="44"/>
+    </elements>
+</model>
