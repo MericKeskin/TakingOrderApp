@@ -21,6 +21,7 @@
 		56FE75FA28E12CFB0013F099 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE75F828E12CFB0013F099 /* SectionTableViewCell.xib */; };
 		56FE75FF28E12D560013F099 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE75FD28E12D560013F099 /* ItemTableViewCell.swift */; };
 		56FE760028E12D560013F099 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE75FE28E12D560013F099 /* ItemTableViewCell.xib */; };
+		56FE760328E318D00013F099 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE760228E318D00013F099 /* Array+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		56FE75F828E12CFB0013F099 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTableViewCell.xib; sourceTree = "<group>"; };
 		56FE75FD28E12D560013F099 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		56FE75FE28E12D560013F099 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		56FE760228E318D00013F099 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		56FE75D628E102370013F099 /* TakingOrderApp */ = {
 			isa = PBXGroup;
 			children = (
+				56FE760128E318BE0013F099 /* Util */,
 				56FE75F628E12CD70013F099 /* View */,
 				56FE75F328E121D30013F099 /* Model */,
 				56FE75EE28E105890013F099 /* Controller */,
@@ -113,6 +116,14 @@
 				56FE75FE28E12D560013F099 /* ItemTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		56FE760128E318BE0013F099 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				56FE760228E318D00013F099 /* Array+Extension.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FE75F028E106A10013F099 /* OrdersViewController.swift in Sources */,
+				56FE760328E318D00013F099 /* Array+Extension.swift in Sources */,
 				56FE75FF28E12D560013F099 /* ItemTableViewCell.swift in Sources */,
 				56FE75DC28E102370013F099 /* MenuViewController.swift in Sources */,
 				56FE75D828E102370013F099 /* AppDelegate.swift in Sources */,

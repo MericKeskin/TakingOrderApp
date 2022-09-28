@@ -41,6 +41,7 @@
                     <navigationItem key="navigationItem" id="mFT-ig-6hz"/>
                     <connections>
                         <segue destination="UoA-gy-dEU" kind="presentation" identifier="toMenu" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="hml-Fr-i6D"/>
+                        <segue destination="9yC-OS-tVR" kind="show" identifier="toEdit" id="UeI-5j-OZ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUR-DT-JS1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -107,6 +108,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XXm-Ke-MbJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LaG-nk-Wec">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -121,6 +123,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="UeI-5j-OZ5"/>
         <segue reference="hml-Fr-i6D"/>
         <segue reference="qfp-Xy-qYP"/>
     </inferredMetricsTieBreakers>

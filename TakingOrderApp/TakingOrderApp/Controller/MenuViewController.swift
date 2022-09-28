@@ -16,6 +16,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var sections = [Section]()
     var items = [MenuItem]()
+    var orders = [Order]()
+    
+    var tableNumber: Int64 = 0
+    var tableInfoKnown = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,14 +93,29 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let item = self.items.filter({ $0.section == sections[indexPath.section].name })[indexPath.row - 1]
             let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             sheet.addAction(UIAlertAction(title: "Add Order", style: .default, handler: { [weak self] _ in
-                
+                if self?.tableInfoKnown != nil {
+                    self?.createOrder(name: item.name ?? "", tableNumber: self?.tableNumber ?? 0, item: item)
+                } else {
+                    self?.createOrder(name: item.name ?? "", item: item)
+                }
+                self?.performSegue(withIdentifier: "toDetail", sender: nil)
             }))
             sheet.addAction(UIAlertAction(title: "Quick Add", style: .default, handler: { [weak self] _ in
-                
+                if self?.tableInfoKnown != nil {
+                    self?.createOrder(name: item.name ?? "", tableNumber: self?.tableNumber ?? 0, item: item)
+                } else {
+                    self?.createOrder(name: item.name ?? "", item: item)
+                    self?.performSegue(withIdentifier: "toTables", sender: nil)
+                }
             }))
             sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             present(sheet, animated: true)
         }
+    }
+    
+    func passTableInfo(tableNumber: Int64) {
+        tableInfoKnown = true
+        self.tableNumber = tableNumber
     }
     
     func getSections() {
@@ -141,6 +160,30 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             newItem.name = name
             newItem.section = section
             newItem.contents = contents
+        }
+        do {
+            try context?.save()
+            getItems()
+        } catch let e {
+            print(e)
+        }
+    }
+    
+    func getOrders() {
+        do {
+            orders = try context?.fetch(Order.fetchRequest()) ?? []
+        } catch let e {
+            print(e)
+        }
+    }
+    
+    func createOrder(name: String, tableNumber: Int64 = 0, item: MenuItem) {
+        if let context = context ?? self.context {
+            let newOrder = Order(context: context)
+            newOrder.name = name
+            newOrder.tableNumber = tableNumber
+            let contents = item.contents?.toDictionary(key: { $0.self }, value: true)
+            newOrder.contents = contents as? [String:Bool]
         }
         do {
             try context?.save()

@@ -8,7 +8,7 @@
     <entity name="Order" representedClassName="Order" syncable="YES" codeGenerationType="class">
         <attribute name="contents" optional="YES" attributeType="Transformable" customClassName="[String:Bool]"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="tableNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tableNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Section" representedClassName="Section" syncable="YES" codeGenerationType="class">
         <attribute name="isOpen" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
