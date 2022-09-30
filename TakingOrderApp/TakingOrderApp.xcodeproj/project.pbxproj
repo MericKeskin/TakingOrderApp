@@ -22,6 +22,8 @@
 		56FE75FF28E12D560013F099 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE75FD28E12D560013F099 /* ItemTableViewCell.swift */; };
 		56FE760028E12D560013F099 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE75FE28E12D560013F099 /* ItemTableViewCell.xib */; };
 		56FE760328E318D00013F099 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE760228E318D00013F099 /* Array+Extension.swift */; };
+		56FE760628E733D00013F099 /* TableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE760428E733D00013F099 /* TableTableViewCell.swift */; };
+		56FE760728E733D00013F099 /* TableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE760528E733D00013F099 /* TableTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		56FE75FD28E12D560013F099 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		56FE75FE28E12D560013F099 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		56FE760228E318D00013F099 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		56FE760428E733D00013F099 /* TableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTableViewCell.swift; sourceTree = "<group>"; };
+		56FE760528E733D00013F099 /* TableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				56FE75F828E12CFB0013F099 /* SectionTableViewCell.xib */,
 				56FE75FD28E12D560013F099 /* ItemTableViewCell.swift */,
 				56FE75FE28E12D560013F099 /* ItemTableViewCell.xib */,
+				56FE760428E733D00013F099 /* TableTableViewCell.swift */,
+				56FE760528E733D00013F099 /* TableTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FE760728E733D00013F099 /* TableTableViewCell.xib in Resources */,
 				56FE75E728E102380013F099 /* LaunchScreen.storyboard in Resources */,
 				56FE75FA28E12CFB0013F099 /* SectionTableViewCell.xib in Resources */,
 				56FE75E428E102380013F099 /* Assets.xcassets in Resources */,
@@ -202,6 +209,7 @@
 				56FE75F028E106A10013F099 /* OrdersViewController.swift in Sources */,
 				56FE760328E318D00013F099 /* Array+Extension.swift in Sources */,
 				56FE75FF28E12D560013F099 /* ItemTableViewCell.swift in Sources */,
+				56FE760628E733D00013F099 /* TableTableViewCell.swift in Sources */,
 				56FE75DC28E102370013F099 /* MenuViewController.swift in Sources */,
 				56FE75D828E102370013F099 /* AppDelegate.swift in Sources */,
 				56FE75F228E10C870013F099 /* TablesViewController.swift in Sources */,
