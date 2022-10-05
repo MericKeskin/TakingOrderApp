@@ -7,23 +7,48 @@
 
 import UIKit
 
+protocol TablesViewControllerDelegateFromMenu: AnyObject {
+    
+    var orders: [Order] { get set }
+    
+    func getOrders()
+}
+
+protocol TablesViewControllerDelegateFromDetail: AnyObject {
+
+    func dismissBack()
+}
+
 class TablesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tablesTableView: UITableView!
     
+    weak var delegateMenu: TablesViewControllerDelegateFromMenu?
+    weak var delegateDetail: TablesViewControllerDelegateFromDetail?
+    
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     var tables = [Table]()
+    
+    var from = "none"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tablesTableView.register(UINib(nibName:"TableTableViewCell", bundle: nil), forCellReuseIdentifier: "tableCell")
         
+        if from == "none" {
+            navigationItem.setLeftBarButton(nil, animated: false)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTableBtnClick))
+        } else {
+            navigationItem.setRightBarButton(nil, animated: false)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBtnClick))
+        }
+        
         getTables()
     }
     
-    @IBAction func addTableBtnClick(_ sender: Any) {
+    @objc func addTableBtnClick() {
         let alert = UIAlertController(title: "New Table", message: "Enter table number", preferredStyle: .alert)
         alert.addTextField(configurationHandler: nil)
         alert.addAction(UIAlertAction(title: "Enter", style: .cancel) { [weak self] _ in
@@ -31,6 +56,11 @@ class TablesViewController: UIViewController, UITableViewDataSource, UITableView
             self?.createTable(number: Int64(text) ?? 0)
         })
         present(alert, animated: true)
+    }
+    
+    @objc func cancelBtnClick() {
+        from = "none"
+        dismiss(animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,25 +78,41 @@ class TablesViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tablesTableView.deselectRow(at: indexPath, animated: true)
         let table = self.tables[indexPath.row]
-        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        sheet.addAction(UIAlertAction(title: "Show orders", style: .default, handler: { [weak self] _ in
-        
-        }))
-        sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
-            let alert = UIAlertController(title: "Edit Table", message: "Edit the item", preferredStyle: .alert)
-            alert.addTextField(configurationHandler: nil)
-            alert.textFields?.first?.text = "\(table.number)"
-            alert.addAction(UIAlertAction(title: "Enter", style: .cancel) { [weak self] _ in
-                guard let text = alert.textFields?.first?.text, !text.isEmpty else { return }
-                self?.updateTable(table: table, newNumber: Int64(text) ?? 0)
-            })
-            self?.present(alert, animated: true)
-        }))
-        sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
-            self?.deleteTable(table: table)
-        }))
-        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(sheet, animated: true)
+        if from == "menu" {
+            delegateMenu?.getOrders()
+            delegateMenu?.orders.first(where: { $0.tableNumber == 0 })?.tableNumber = table.number
+            from = "none"
+            dismiss(animated: true)
+        } else if from == "detail" {
+            delegateMenu?.getOrders()
+            delegateMenu?.orders.first(where: { $0.tableNumber == 0 })?.tableNumber = table.number
+            from = "none"
+            delegateDetail?.dismissBack()
+        } else {
+            let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            sheet.addAction(UIAlertAction(title: "Show orders", style: .default, handler: { [weak self] _ in
+                self?.performSegue(withIdentifier: "toOrders", sender: nil)
+            }))
+            sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
+                let alert = UIAlertController(title: "Edit Table", message: "Edit the item", preferredStyle: .alert)
+                alert.addTextField(configurationHandler: nil)
+                alert.textFields?.first?.text = "\(table.number)"
+                alert.addAction(UIAlertAction(title: "Enter", style: .cancel) { [weak self] _ in
+                    guard let text = alert.textFields?.first?.text, !text.isEmpty else { return }
+                    self?.updateTable(table: table, newNumber: Int64(text) ?? 0)
+                })
+                self?.present(alert, animated: true)
+            }))
+            sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+                self?.deleteTable(table: table)
+            }))
+            sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(sheet, animated: true)
+        }
+    }
+    
+    func passFromInfo(from: String) {
+        self.from = from
     }
     
     func getTables() {

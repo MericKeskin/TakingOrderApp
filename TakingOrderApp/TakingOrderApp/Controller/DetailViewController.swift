@@ -7,11 +7,14 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, TablesViewControllerDelegateFromDetail {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+    }
+    
+    func dismissBack() {
+        dismiss(animated: true)
     }
 }

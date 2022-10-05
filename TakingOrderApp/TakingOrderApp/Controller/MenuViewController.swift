@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TablesViewControllerDelegateFromMenu {
 
     @IBOutlet weak var menuTableView: UITableView!
     
@@ -26,6 +26,13 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         menuTableView.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionCell")
         menuTableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "itemCell")
+        
+        if tableInfoKnown {
+            navigationController?.isNavigationBarHidden = false
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBtnClick))
+        } else {
+            navigationController?.isNavigationBarHidden = true
+        }
         
         getSections()
         if sections.isEmpty {
@@ -55,6 +62,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         getSections()
         getItems()
+    }
+    
+    @objc func cancelBtnClick() {
+        tableInfoKnown = false
+        dismiss(animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -105,7 +117,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     self?.createOrder(name: item.name ?? "", tableNumber: self?.tableNumber ?? 0, item: item)
                 } else {
                     self?.createOrder(name: item.name ?? "", item: item)
-                    self?.performSegue(withIdentifier: "toTables", sender: nil)
+                    self?.performSegue(withIdentifier: "toTablesFromMenu", sender: nil)
                 }
             }))
             sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -187,7 +199,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         do {
             try context?.save()
-            getItems()
+            getOrders()
         } catch let e {
             print(e)
         }

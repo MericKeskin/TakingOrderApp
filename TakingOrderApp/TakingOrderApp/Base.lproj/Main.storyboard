@@ -30,18 +30,12 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="bjX-jh-YkV" secondAttribute="bottom" id="LYd-MT-29o"/>
                             <constraint firstItem="bjX-jh-YkV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="P6g-Ea-Wk2"/>
-                            <constraint firstItem="bjX-jh-YkV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fmt-w2-OJ7"/>
                             <constraint firstItem="bjX-jh-YkV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iWo-Xe-JNU"/>
+                            <constraint firstItem="bjX-jh-YkV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="leH-fc-lmk"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="M21-j0-tjs">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YAf-fv-FRG">
-                            <connections>
-                                <action selector="addTableBtnClick:" destination="BYZ-38-t0r" id="uJ9-A8-fQT"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="M21-j0-tjs"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tablesTableView" destination="bjX-jh-YkV" id="oWB-cT-KhA"/>
@@ -50,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653.62318840579712" y="793.52678571428567"/>
+            <point key="canvasLocation" x="1674" y="840"/>
         </scene>
         <!--Orders View Controller-->
         <scene sceneID="TFy-hk-Giz">
@@ -64,15 +58,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="mFT-ig-6hz"/>
                     <connections>
-                        <segue destination="UoA-gy-dEU" kind="presentation" identifier="toMenu" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="hml-Fr-i6D"/>
+                        <segue destination="Lby-5S-Kxg" kind="presentation" identifier="toMenu" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="hml-Fr-i6D"/>
                         <segue destination="9yC-OS-tVR" kind="show" identifier="toEdit" id="UeI-5j-OZ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUR-DT-JS1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="794"/>
+            <point key="canvasLocation" x="2694" y="840"/>
         </scene>
-        <!--Menu-->
+        <!--Menu View Controller-->
         <scene sceneID="GO8-Lu-dQX">
             <objects>
                 <viewController id="UoA-gy-dEU" customClass="MenuViewController" customModule="TakingOrderApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NQv-Ge-HTA">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="UoA-gy-dEU" id="xdy-vr-D4c"/>
@@ -98,17 +92,16 @@
                             <constraint firstItem="NQv-Ge-HTA" firstAttribute="top" secondItem="dqT-CP-T7i" secondAttribute="top" id="nS5-VY-wBi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Menu" image="fork.knife" catalog="system" selectedImage="fork.knife" id="Mqv-rM-QHa"/>
                     <navigationItem key="navigationItem" id="EzM-hu-H2t"/>
                     <connections>
                         <outlet property="menuTableView" destination="NQv-Ge-HTA" id="xgd-KC-5RZ"/>
                         <segue destination="9yC-OS-tVR" kind="show" identifier="toDetail" id="ysD-fV-1XX"/>
-                        <segue destination="bkv-OM-741" kind="presentation" identifier="toTables" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="qfp-Xy-qYP"/>
+                        <segue destination="Xum-2U-Dlf" kind="presentation" identifier="toTablesFromMenu" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="WNH-75-WhW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lT-h7-KGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="130"/>
+            <point key="canvasLocation" x="1674" y="64"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="HXv-og-UM3">
@@ -121,10 +114,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="u7r-cR-gDa"/>
+                    <connections>
+                        <segue destination="Xum-2U-Dlf" kind="presentation" identifier="toTablesFromDetail" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="6T6-Ms-LWd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLP-qE-tfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="130"/>
+            <point key="canvasLocation" x="2693" y="64"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UqE-TO-8Qa">
@@ -137,41 +133,61 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="UoA-gy-dEU" kind="relationship" relationship="viewControllers" id="6ia-1y-p3y"/>
-                        <segue destination="bkv-OM-741" kind="relationship" relationship="viewControllers" id="vEt-Pf-PzO"/>
+                        <segue destination="Lby-5S-Kxg" kind="relationship" relationship="viewControllers" id="6ia-1y-p3y"/>
+                        <segue destination="Xum-2U-Dlf" kind="relationship" relationship="viewControllers" id="9EE-hj-yaK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9h-ek-lcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-923" y="458"/>
+            <point key="canvasLocation" x="-113" y="457"/>
         </scene>
-        <!--Tables-->
-        <scene sceneID="PdW-tB-qb3">
+        <!--Menu-->
+        <scene sceneID="NbP-Fj-f2k">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bkv-OM-741" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tables" image="123.rectangle.fill" catalog="system" id="oAp-hZ-9NC"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lby-5S-Kxg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Menu" image="fork.knife" catalog="system" selectedImage="fork.knife" id="Mqv-rM-QHa"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M91-St-ba4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JQ3-nO-veB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0V3-Nf-5He"/>
+                        <segue destination="UoA-gy-dEU" kind="relationship" relationship="rootViewController" id="17d-gX-VvT"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xAI-ap-6Jh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PBP-9q-qWx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-152.17391304347828" y="793.52678571428567"/>
+            <point key="canvasLocation" x="654" y="64"/>
+        </scene>
+        <!--Tables-->
+        <scene sceneID="71e-gM-acm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xum-2U-Dlf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tables" image="123.rectangle" catalog="system" selectedImage="123.rectangle" id="Wdt-iq-RWk"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CdC-D1-wVO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="YnM-Da-RbX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FOb-w1-6CQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="654" y="840"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vEt-Pf-PzO"/>
-        <segue reference="ysD-fV-1XX"/>
-        <segue reference="6ia-1y-p3y"/>
+        <segue reference="msa-eB-mrI"/>
+        <segue reference="WNH-75-WhW"/>
+        <segue reference="hml-Fr-i6D"/>
+        <segue reference="UeI-5j-OZ5"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="123.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="123.rectangle" catalog="system" width="128" height="93"/>
         <image name="fork.knife" catalog="system" width="92" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
