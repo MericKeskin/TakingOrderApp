@@ -24,6 +24,14 @@
 		56FE760328E318D00013F099 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE760228E318D00013F099 /* Array+Extension.swift */; };
 		56FE760628E733D00013F099 /* TableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE760428E733D00013F099 /* TableTableViewCell.swift */; };
 		56FE760728E733D00013F099 /* TableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE760528E733D00013F099 /* TableTableViewCell.xib */; };
+		56FE760A28EDC9B70013F099 /* ContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE760828EDC9B70013F099 /* ContentsTableViewCell.swift */; };
+		56FE760B28EDC9B70013F099 /* ContentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE760928EDC9B70013F099 /* ContentsTableViewCell.xib */; };
+		56FE760E28EDCA1D0013F099 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE760C28EDCA1D0013F099 /* NotesTableViewCell.swift */; };
+		56FE760F28EDCA1D0013F099 /* NotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE760D28EDCA1D0013F099 /* NotesTableViewCell.xib */; };
+		56FE761228EDCACE0013F099 /* TitlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE761028EDCACE0013F099 /* TitlesTableViewCell.swift */; };
+		56FE761328EDCACE0013F099 /* TitlesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE761128EDCACE0013F099 /* TitlesTableViewCell.xib */; };
+		56FE761628EDCBCA0013F099 /* IngredientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE761428EDCBCA0013F099 /* IngredientCollectionViewCell.swift */; };
+		56FE761728EDCBCA0013F099 /* IngredientCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE761528EDCBCA0013F099 /* IngredientCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +54,14 @@
 		56FE760228E318D00013F099 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		56FE760428E733D00013F099 /* TableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTableViewCell.swift; sourceTree = "<group>"; };
 		56FE760528E733D00013F099 /* TableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableTableViewCell.xib; sourceTree = "<group>"; };
+		56FE760828EDC9B70013F099 /* ContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsTableViewCell.swift; sourceTree = "<group>"; };
+		56FE760928EDC9B70013F099 /* ContentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentsTableViewCell.xib; sourceTree = "<group>"; };
+		56FE760C28EDCA1D0013F099 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		56FE760D28EDCA1D0013F099 /* NotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesTableViewCell.xib; sourceTree = "<group>"; };
+		56FE761028EDCACE0013F099 /* TitlesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesTableViewCell.swift; sourceTree = "<group>"; };
+		56FE761128EDCACE0013F099 /* TitlesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitlesTableViewCell.xib; sourceTree = "<group>"; };
+		56FE761428EDCBCA0013F099 /* IngredientCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCollectionViewCell.swift; sourceTree = "<group>"; };
+		56FE761528EDCBCA0013F099 /* IngredientCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +136,14 @@
 				56FE75FE28E12D560013F099 /* ItemTableViewCell.xib */,
 				56FE760428E733D00013F099 /* TableTableViewCell.swift */,
 				56FE760528E733D00013F099 /* TableTableViewCell.xib */,
+				56FE761028EDCACE0013F099 /* TitlesTableViewCell.swift */,
+				56FE761128EDCACE0013F099 /* TitlesTableViewCell.xib */,
+				56FE760828EDC9B70013F099 /* ContentsTableViewCell.swift */,
+				56FE760928EDC9B70013F099 /* ContentsTableViewCell.xib */,
+				56FE761428EDCBCA0013F099 /* IngredientCollectionViewCell.swift */,
+				56FE761528EDCBCA0013F099 /* IngredientCollectionViewCell.xib */,
+				56FE760C28EDCA1D0013F099 /* NotesTableViewCell.swift */,
+				56FE760D28EDCA1D0013F099 /* NotesTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,9 +216,13 @@
 			files = (
 				56FE760728E733D00013F099 /* TableTableViewCell.xib in Resources */,
 				56FE75E728E102380013F099 /* LaunchScreen.storyboard in Resources */,
+				56FE760B28EDC9B70013F099 /* ContentsTableViewCell.xib in Resources */,
+				56FE760F28EDCA1D0013F099 /* NotesTableViewCell.xib in Resources */,
 				56FE75FA28E12CFB0013F099 /* SectionTableViewCell.xib in Resources */,
 				56FE75E428E102380013F099 /* Assets.xcassets in Resources */,
+				56FE761328EDCACE0013F099 /* TitlesTableViewCell.xib in Resources */,
 				56FE760028E12D560013F099 /* ItemTableViewCell.xib in Resources */,
+				56FE761728EDCBCA0013F099 /* IngredientCollectionViewCell.xib in Resources */,
 				56FE75DF28E102370013F099 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,12 +234,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FE761628EDCBCA0013F099 /* IngredientCollectionViewCell.swift in Sources */,
+				56FE761228EDCACE0013F099 /* TitlesTableViewCell.swift in Sources */,
 				56FE75F028E106A10013F099 /* OrdersViewController.swift in Sources */,
 				56FE760328E318D00013F099 /* Array+Extension.swift in Sources */,
 				56FE75FF28E12D560013F099 /* ItemTableViewCell.swift in Sources */,
+				56FE760A28EDC9B70013F099 /* ContentsTableViewCell.swift in Sources */,
 				56FE760628E733D00013F099 /* TableTableViewCell.swift in Sources */,
 				56FE75DC28E102370013F099 /* MenuViewController.swift in Sources */,
 				56FE75D828E102370013F099 /* AppDelegate.swift in Sources */,
+				56FE760E28EDCA1D0013F099 /* NotesTableViewCell.swift in Sources */,
 				56FE75F228E10C870013F099 /* TablesViewController.swift in Sources */,
 				56FE75E228E102370013F099 /* TakingOrderApp.xcdatamodeld in Sources */,
 				56FE75F928E12CFB0013F099 /* SectionTableViewCell.swift in Sources */,

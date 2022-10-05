@@ -28,9 +28,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         menuTableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "itemCell")
         
         if tableInfoKnown {
+            tabBarController?.tabBar.isHidden = true
             navigationController?.isNavigationBarHidden = false
             navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBtnClick))
         } else {
+            tabBarController?.tabBar.isHidden = false
             navigationController?.isNavigationBarHidden = true
         }
         
@@ -66,6 +68,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @objc func cancelBtnClick() {
         tableInfoKnown = false
+        dismiss(animated: true)
+    }
+    
+    func dismissBack() {
         dismiss(animated: true)
     }
     
@@ -122,6 +128,14 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }))
             sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             present(sheet, animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailViewController {
+            
+        } else if let destination = segue.destination as? TablesViewController {
+            destination.passFromInfo(from: "menu")
         }
     }
     

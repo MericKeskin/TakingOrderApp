@@ -6,15 +6,56 @@
 //
 
 import UIKit
+import CoreData
 
-class DetailViewController: UIViewController, TablesViewControllerDelegateFromDetail {
+protocol DetailViewControllerDelegateFromMenu: AnyObject {
+    
+    func dismissBack()
+}
 
+class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TablesViewControllerDelegateFromDetail {
+
+    @IBOutlet weak var detailTableView: UITableView!
+    
+    weak var delegateMenu: DetailViewControllerDelegateFromMenu?
+    
+    var order = Order()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        detailTableView.register(UINib(nibName: "TitlesTableViewCell", bundle: nil), forCellReuseIdentifier: "titlesCell")
+        detailTableView.register(UINib(nibName: "ContentsTableViewCell", bundle: nil), forCellReuseIdentifier: "contentsCell")
+        detailTableView.register(UINib(nibName: "NotesTableViewCell", bundle: nil), forCellReuseIdentifier: "notesCell")
     }
     
     func dismissBack() {
         dismiss(animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            if let cell = detailTableView.dequeueReusableCell(withIdentifier: "titlesCell", for: indexPath) as? TitlesTableViewCell {
+                
+                return cell
+            }
+        case 1:
+            if let cell = detailTableView.dequeueReusableCell(withIdentifier: "contentsCell", for: indexPath) as? ContentsTableViewCell {
+                
+                return cell
+            }
+        case 2:
+            if let cell = detailTableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) as? NotesTableViewCell {
+                
+                return cell
+            }
+        default:
+            return UITableViewCell()
+        }
     }
 }

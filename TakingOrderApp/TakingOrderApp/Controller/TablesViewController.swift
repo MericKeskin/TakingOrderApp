@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol TablesViewControllerDelegateFromMenu: AnyObject {
     
@@ -108,6 +109,12 @@ class TablesViewController: UIViewController, UITableViewDataSource, UITableView
             }))
             sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             present(sheet, animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? OrdersViewController {
+            
         }
     }
     
