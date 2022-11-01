@@ -13,7 +13,7 @@ protocol DetailViewControllerDelegateFromMenu: AnyObject {
     func dismissBack()
 }
 
-class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TablesViewControllerDelegateFromDetail {
+class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TablesViewControllerDelegateFromDetail, NotesTableViewCellDelegate {
 
     @IBOutlet weak var detailTableView: UITableView!
     
@@ -33,6 +33,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         dismiss(animated: true)
     }
     
+    func didTapDone() {
+        
+        dismiss(animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -41,12 +46,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         switch indexPath.row {
         case 0:
             if let cell = detailTableView.dequeueReusableCell(withIdentifier: "titlesCell", for: indexPath) as? TitlesTableViewCell {
-                
+                cell.orderNameLbl.text = order.name
                 return cell
             }
         case 1:
             if let cell = detailTableView.dequeueReusableCell(withIdentifier: "contentsCell", for: indexPath) as? ContentsTableViewCell {
-                
+                cell.passOrderInfo(order: order)
                 return cell
             }
         case 2:
@@ -57,5 +62,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         default:
             return UITableViewCell()
         }
+        return UITableViewCell()
     }
 }

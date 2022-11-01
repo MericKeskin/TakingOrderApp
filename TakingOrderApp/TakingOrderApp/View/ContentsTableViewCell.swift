@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class ContentsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var contentsCollectionView: UICollectionView!
+    
+    var order: Order?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,11 +26,22 @@ class ContentsTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return order?.contents?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        if let cell = contentsCollectionView.dequeueReusableCell(withReuseIdentifier: "ingredientCell", for: indexPath) as? IngredientCollectionViewCell {
+            
+            return cell
+        }
+        return UICollectionViewCell()
     }
     
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//    }
+    
+    func passOrderInfo(order: Order) {
+        self.order = order
+    }
 }
